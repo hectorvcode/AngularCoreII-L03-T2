@@ -1,1 +1,5 @@
-<p>books works!</p>
+<ul>
+    <li *ngFor="let book of books$ | async">
+        Name: {{ book.title }}, Author: {{ book.description }}
+    </li>
+</ul>

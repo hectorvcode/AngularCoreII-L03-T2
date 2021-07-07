@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { rootReducer } from './store/root.reducer';
 import { BooksComponent } from './pages/books/books.component';
+import { BooksFacade } from './store';
 
 
 @NgModule({
@@ -16,7 +17,7 @@ import { BooksComponent } from './pages/books/books.component';
     BrowserModule,
     StoreModule.forRoot(rootReducer)
   ],
-  providers: [],
+  providers: [BooksFacade],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
