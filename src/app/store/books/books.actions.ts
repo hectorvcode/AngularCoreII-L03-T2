@@ -1,6 +1,7 @@
 import { createAction, props } from "@ngrx/store";
-import { create } from "domain";
 import { IBook } from "src/app/core/interfaces";
 
 
-export const updateBook =  createAction('[id] Update id', props<IBook>());
+export const addBook =  createAction('[User] Add Book', props<{ newBook:IBook }>());
+export const updateBook =  createAction('[User] Update Book', props<IBook>());
+export const updateNameBook = createAction('[User] Update NameBook', props<{ name:string }>());

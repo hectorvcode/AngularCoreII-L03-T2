@@ -3,5 +3,5 @@ export interface IBook {
     title:string; 
     description:string; 
     ageCount:number; 
-    publishDate:string;
+    publishDate:number;
 }

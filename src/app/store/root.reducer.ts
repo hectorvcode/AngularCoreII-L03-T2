@@ -4,5 +4,5 @@ import { bookReducer } from "./books";
 
 
 export const rootReducer: ActionReducerMap<IAppState, Action> = {
-    book:bookReducer
+    bookState: bookReducer,
 }
