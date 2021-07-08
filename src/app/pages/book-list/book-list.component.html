@@ -1,0 +1,23 @@
+<section class="bg-gray-300 flex flex-wrap justify-around">
+    <div class="w-2/5" *ngFor="let book of books$ | async">
+        <div class="border-4 border-light-blue-500 hover:border-gray-500 bg-blue-200 rounded-lg shadow-lg m-8">
+            <div class="flex justify-between border-b border-gray-100 px-5 py-4">
+                <div>
+                    <span class="font-bold text-blue-700 text-2xl">
+                      {{ book.title }}
+                    </span>
+                </div>
+            </div>
+            <div class="px-10 py-5 text-gray-600">
+                {{ book.description }}
+            </div>
+            <div class="px-5 py-4 flex justify-end">
+                <a href="" class="border-2 border-blue-500 rounded-lg font-bold text-blue-500 px-4 py-3 t
+                ransition duration-300 ease-in-out hover:bg-blue-500 hover:text-white">
+                    Schedule Club Section
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
