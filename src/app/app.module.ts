@@ -4,18 +4,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { rootReducer } from './store/root.reducer';
-import { BooksComponent } from './pages/books/books.component';
 import { BooksFacade } from './store';
+import { BookListComponent } from './pages/book-list/book-list.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './pages/home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    BooksComponent,
+    BookListComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot(rootReducer)
+    StoreModule.forRoot(rootReducer),
+    AppRoutingModule
   ],
   providers: [BooksFacade],
   bootstrap: [AppComponent]
