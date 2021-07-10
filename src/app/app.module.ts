@@ -9,6 +9,7 @@ import { BookListComponent } from './pages/book-list/book-list.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './pages/home/home.component';
 import { AddBookComponent } from './pages/add-book/add-book.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { AddBookComponent } from './pages/add-book/add-book.component';
   imports: [
     BrowserModule,
     StoreModule.forRoot(rootReducer),
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [BooksFacade],
   bootstrap: [AppComponent]
