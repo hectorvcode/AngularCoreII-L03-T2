@@ -1,35 +1,35 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { IBook } from '../../core/interfaces';
+import { BooksFacade } from '../../store';
 
 @Component({
   selector: 'app-add-book',
   templateUrl: './add-book.component.html',
-  styleUrls: ['./add-book.component.css']
+  styleUrls: ['./add-book.component.css'],
 })
 export class AddBookComponent implements OnInit {
+  public addBookForm: Partial<IBook> = {};
+  // public addBookFormReactive: FormGroup;
 
-  addBookForm = {
-    id: "",
-    title: "",
-    description:"",
-    pageCount: 0,
-    publishDate: 0
-  }
-
-  constructor() { }
+  constructor(
+    private readonly _booksFacade: BooksFacade,
+    private readonly _router: Router,
+    private readonly _formBuilder: FormBuilder
+  ) {}
 
   ngOnInit(): void {
+    // this.addBookFormReactive = this._formBuilder.group({
+    //   id: ['', Validators.required],
+    //   title: ['', [Validators.required, Validators.pattern(/[a-zA-Z ]*/)]]
+    // })
   }
 
-  public saveBook():void{
-    // console.log(
-    //   `id: ${this.addBookForm.id}
-    //    title: ${this.addBookForm.title}
-    //    description: ${this.addBookForm.description}
-    //    pageCount: ${this.addBookForm.pageCount}
-    //    publishDate: ${this.addBookForm.publishDate}
-    // `);
-    console.log(this.addBookForm);
-    
+  public saveBook(): void {
+    if (this.addBookForm) {
+      this._booksFacade.addBook(this.addBookForm as IBook);
+      this._router.navigate(['books']);
+    }
   }
-
 }

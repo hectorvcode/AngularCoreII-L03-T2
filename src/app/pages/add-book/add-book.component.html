@@ -5,14 +5,14 @@
             <div class="flex space-x-5 mt-3">
                 <input type="text" name="id" [(ngModel)]="addBookForm.id" #id="ngModel" id="" placeholder="Id" class="border p-2  w-1/3">
                 <p [hidden]="id.valid || id.pristine">id is required</p>
-                <input type="text" name="title" [(ngModel)]="addBookForm.title" #title="ngModel" id="" placeholder="Title" class="border p-2 w-2/3">
-                <p [hidden]="title.valid || title.pristine">title is required</p>
+                <input type="text" name="title" [(ngModel)]="addBookForm.title" #title="ngModel" id="" placeholder="Title" class="border p-2 w-2/3" pattern="[a-zA-Z ]*">
+                <p [hidden]="title.valid">Pattern does not match</p>
             </div>
             <textarea name="description" [(ngModel)]="addBookForm.description" #description="ngModel" id="" cols="10" rows="3" placeholder="Description" class="border p-2 mt-3 w-full"></textarea>
             <p [hidden]="description.valid || description.pristine">description is required</p>
             <div class="flex space-x-5 mt-3">
-                <input type="text" name="pageCount" [(ngModel)]="addBookForm.pageCount" #pageCount="ngModel" id="" placeholder="#Pages" class="border p-2  w-1/2">
-                <p [hidden]="pageCount.valid || pageCount.pristine">pageCount is required</p>
+                <input type="text" name="pageCount" [(ngModel)]="addBookForm.pageCount" #pageCount="ngModel" id="" placeholder="#Pages" class="border p-2  w-1/2" required>
+                <p [hidden]="!pageCount.errors">pageCount is required</p>
                 <input type="text" name="publishDate" [(ngModel)]="addBookForm.publishDate" #publishDate="ngModel" id="" placeholder="Year" class="border p-2 w-1/2">
                 <p [hidden]="publishDate.valid || publishDate.pristine">publishDate is required</p>
             </div>
