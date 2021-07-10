@@ -8,6 +8,7 @@ import { BooksFacade } from './store';
 import { BookListComponent } from './pages/book-list/book-list.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './pages/home/home.component';
+import { AddBookComponent } from './pages/add-book/add-book.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { HomeComponent } from './pages/home/home.component';
     AppComponent,
     BookListComponent,
     HomeComponent,
+    AddBookComponent,
   ],
   imports: [
     BrowserModule,
