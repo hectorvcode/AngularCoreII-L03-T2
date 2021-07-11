@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { IBook } from 'src/app/core/interfaces';
+import { BooksFacade } from 'src/app/store';
 
 @Component({
   selector: 'app-add-book',
@@ -7,28 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddBookComponent implements OnInit {
 
-  addBookForm = {
-    id: "",
-    title: "",
-    description:"",
-    pageCount: 0,
-    publishDate: 0
-  }
+  public addBookForm: Partial<IBook> = {};
 
-  constructor() { }
+  constructor(
+    private readonly _booksFacade: BooksFacade,
+    private readonly _router: Router,
+  ) { }
 
   ngOnInit(): void {
   }
 
   public saveBook():void{
-    // console.log(
-    //   `id: ${this.addBookForm.id}
-    //    title: ${this.addBookForm.title}
-    //    description: ${this.addBookForm.description}
-    //    pageCount: ${this.addBookForm.pageCount}
-    //    publishDate: ${this.addBookForm.publishDate}
-    // `);
-    console.log(this.addBookForm);
+    if(this.addBookForm) {
+      this._booksFacade.addBook(this.addBookForm as IBook);
+      this._router.navigate(['books']);
+    }
     
   }
 
