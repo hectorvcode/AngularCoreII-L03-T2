@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BooksService } from 'src/app/core/services/books.service';
 import { BooksFacade } from 'src/app/store';
 
 @Component({
@@ -9,9 +10,20 @@ import { BooksFacade } from 'src/app/store';
 export class BookListComponent implements OnInit {
   public books$ = this._booksFacade.books$;
   
-  constructor(private readonly _booksFacade: BooksFacade) { }
+  constructor(private readonly _booksFacade: BooksFacade, 
+    private readonly _bookService: BooksService) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    //debugger
+    const bookList = await this._bookService.getBooksList();
+    bookList.forEach((book)=>{
+      console.log(book);
+      this._booksFacade.addBook(book);
+    });
+
+    // for(let i = 0; i < bookList.length; i++){
+    //   console.log(bookList[i]);
+    // }
   }
 
 }

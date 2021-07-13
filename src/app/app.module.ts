@@ -10,7 +10,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './pages/home/home.component';
 import { AddBookComponent } from './pages/add-book/add-book.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
+//asegurate de actualizar el store, llamando por cada libro recibido la acción de addBook
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     StoreModule.forRoot(rootReducer),
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [BooksFacade],
   bootstrap: [AppComponent]
